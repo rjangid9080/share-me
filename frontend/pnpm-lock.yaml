@@ -17,7 +17,7 @@ specifiers:
   react-router-dom: ^6.2.1
   react-scripts: 5.0.0
   tailwindcss: ^3.0.17
-  uui: ^1.0.7
+  uuid: ^8.3.2
   web-vitals: ^2.1.4
 
 dependencies:
@@ -34,7 +34,7 @@ dependencies:
   react-masonry-css: 1.0.16_react@17.0.2
   react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
   react-scripts: 5.0.0_autoprefixer@10.4.2+react@17.0.2
-  uui: 1.0.7
+  uuid: 8.3.2
   web-vitals: 2.1.4
 
 devDependencies:
@@ -9129,10 +9129,6 @@ packages:
   /utils-merge/1.0.1:
     resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=}
     engines: {node: '>= 0.4.0'}
-    dev: false
-
-  /uui/1.0.7:
-    resolution: {integrity: sha512-k9l6kxVMwk02dy9axYYay5dWVF+3jfBcVpgJUj09WIcp4JSHM3JPdlcpicFTWUYryZGKryxSkS0xhtUSn2xAnw==}
     dev: false
 
   /uuid/8.3.2:

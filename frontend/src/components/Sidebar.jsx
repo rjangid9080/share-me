@@ -8,7 +8,7 @@ import logo from "../assets/logo.png";
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitilize";
+  "flex items-center px-5 py-2 gap-3 text-gray-700 font-bold border-r-2 bg-blue-50 border-black transition-all duration-200 ease-in-out capitilize";
 
 const categories = [
   { name: "Animals" },
