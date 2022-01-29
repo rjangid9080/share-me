@@ -48,7 +48,35 @@ const CreatePin = ({ user }) => {
       setWrongImageType(true);
     }
   };
+  const savePin = () => {
+    if (title && about && destination && imageAsset?._id && category) {
+      const doc = {
+        _type: "pin",
+        title,
+        destination,
+        about,
+        destination,
+        image: {
+          _type: "image",
+          asset: {
+            _type: "reference",
+            _ref: imageAsset?._id,
+          },
+        },
+        userId: user._id,
+        postedBy: {
+          _type: "postedBy",
+          _ref: user._id,
+        },
+        category,
+      };
+      client.create(doc).then(() => navigate("/"));
+    } else {
+      setFields(true);
 
+      setTimeout(() => setFields(false), 2000);
+    }
+  };
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
       {fields && (
@@ -105,7 +133,7 @@ const CreatePin = ({ user }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Add your title here"
-            className="outline-none text-sm font-semibold border-b-2 border-gray-200 p-2 "
+            className="outline-none text-sm border-b-2 border-gray-200 p-2 "
           />
           {user && (
             <div className="flex gap-2 my-2 items-center bg-white rounded-lg">
@@ -122,15 +150,47 @@ const CreatePin = ({ user }) => {
             value={about}
             onChange={(e) => setAbout(e.target.value)}
             placeholder="Tell me about your pin"
-            className="outline-none text-sm font-semibold border-b-2 border-gray-200 p-2 "
+            className="outline-none text-sm border-b-2 border-gray-200 p-2 "
           />
           <input
             type="text"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Add a destination link"
-            className="outline-none text-sm font-semibold border-b-2 border-gray-200 p-2 "
+            className="outline-none text-sm border-b-2 border-gray-200 p-2 "
           />
+          <div className="flex flex-col">
+            <div>
+              <p className="mb-2 text-md font-semibold sm:text-xl">
+                Choose Your Pin Category
+              </p>
+              <select
+                onChange={(e) => e.target.value}
+                className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
+              >
+                <option value="other" className="bg-white">
+                  Select Category
+                </option>
+                {categories.map((category) => (
+                  <option
+                    className="text-base border-0 outline-none capitalize bg-white"
+                    value={category.name}
+                  >
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex justify-end items-end mt-5">
+              <button
+                type="button"
+                onClick={savePin}
+                className="bg-red-500 text-sm text-white p-2 rounded-full w-28 outline-none"
+              >
+                Save Pin
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
