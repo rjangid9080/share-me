@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IoIosAdd, IoMdAdd, IoMdSearch } from "react-icons/io";
+import {IoMdAdd, IoMdSearch } from "react-icons/io";
 
 const Navbar = ({ searchTerm, setSearchTerm, user }) => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
         />
       </div>
       <div className="flex gap-3">
-        <Link to={`user-profile/${user?.id}`} className="hidden md:block">
+        <Link to={`user-profile/${user?._id}`} className="hidden md:block">
           <img
             src={user.image}
             className="w-12 h-12 rounded-lg"
@@ -29,7 +29,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           />
         </Link>
         <Link to="/create-pin" className="w-12 h-12 rounded-lg flex justify-center items-center bg-black text-white">
-          <IoIosAdd/>
+          <IoMdAdd/>
         </Link>
       </div>
     </div>
