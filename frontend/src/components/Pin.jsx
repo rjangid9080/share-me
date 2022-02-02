@@ -25,10 +25,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         .insert("after", "save[-1]", [
           {
             _key: uuidv4(),
-            userId: user.googleId,
+            userId: user?.googleId,
             postedBy: {
               _type: "postedBy",
-              _ref: user.googleId,
+              _ref: user?.googleId,
             },
           },
         ])
@@ -106,7 +106,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     : destination.slice(8)}
                 </a>
               )}
-              {postedBy?._id === user.googleId && (
+              {postedBy?._id === user?.googleId && (
                 <button
                   type="button"
                   onClick={(e) => {
