@@ -28,8 +28,9 @@ const Feed = () => {
       });
     }
   }, [categoryId]);
-  
+
   if (loading) return <Spinner message="Adding new ideas to your feed!" />;
+  if (!pins?.length) return <h2>No Pins Available</h2>;
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };
 
