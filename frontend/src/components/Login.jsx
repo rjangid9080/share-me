@@ -3,13 +3,12 @@ import GoogleLogin from "react-google-login";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import shareVideo from "../assets/share.mp4";
-import logo from "../assets/logowhite.png";
+import { FcOldTimeCamera } from "react-icons/fc";
 import { client } from "../client";
 
 const Login = () => {
   const navigate = useNavigate();
   const responseGoogle = (res) => {
-    
     localStorage.setItem("user", JSON.stringify(res.profileObj));
 
     const { name, googleId, imageUrl } = res.profileObj;
@@ -39,8 +38,9 @@ const Login = () => {
         />
       </div>
       <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
-        <div className="p-5">
-          <img src={logo} width="130px" alt="logo" />
+        <div className="p-5 flex">
+          <FcOldTimeCamera className="text-2xl mr-2" />
+          <p className="gloriaFont text-white font-semibold">Share Me</p>
         </div>
         <div className="shadow-2xl">
           <GoogleLogin

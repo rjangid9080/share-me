@@ -1,11 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Gloria+Hallelujah&display=swap');
 body {
-    font-family: 'Lato',sans-serif;
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 .hide-scrollbar::-webkit-scrollbar{
     display: none;
+}
+
+.gloriaFont {
+    font-family: 'Gloria Hallelujah', cursive;
 }

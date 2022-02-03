@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { HiMenuAlt1 } from "react-icons/hi";
+import {FcOldTimeCamera} from "react-icons/fc"
 
 import { Sidebar, UserProfile } from "../components";
 import Pins from "./Pins";
-import logo from "../assets/logo.png";
 import { client } from "../client";
 import { userQuery } from "../utils/data";
 import { fetchUser } from "../utils/fetchUser";
@@ -36,18 +36,19 @@ const Home = () => {
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
           <HiMenuAlt1
-            fontSize={40}
+            fontSize={30}
             className="cursor-pointer"
             onClick={() => setToggleSidebar(true)}
           />
-          <Link to="/">
-            <img src={logo} alt="logo" className="w-28" />
+          <Link to="/" className="flex">
+            < FcOldTimeCamera className="text-2xl mr-2"/>
+            <p className="gloriaFont font-semibold" >Share Me</p>
           </Link>
           <Link to={`user-profile/${user?._id}`}>
             <img
               src={user?.image}
               alt="userImage"
-              className="w-28 rounded-full"
+              className="w-10 rounded-full"
             />
           </Link>
         </div>

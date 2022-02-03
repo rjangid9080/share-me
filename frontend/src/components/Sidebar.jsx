@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { RiHomeFill } from "react-icons/ri";
-import { IoIosArrowForward } from "react-icons/io";
+import { FcOldTimeCamera } from "react-icons/fc";
 
-import logo from "../assets/logo.png";
 import { categories } from "../utils/data";
 
 const isNotActiveStyle =
@@ -26,7 +25,8 @@ const Sidebar = ({ user, closeToggle }) => {
           className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
           onClick={handleCloseSidebar}
         >
-          <img src={logo} alt="logo" className="w-full" />
+          <FcOldTimeCamera className="text-2xl mr-2" />
+          <p className="gloriaFont font-semibold">Share Me</p>
         </Link>
         <div className=" flex flex-col gap-5">
           <NavLink
@@ -64,7 +64,7 @@ const Sidebar = ({ user, closeToggle }) => {
       {user && (
         <Link
           to={`user-profile/${user._id}`}
-          className="flex my-5 mb-3 gap-2 p-2 items-center bg-white rounded-lg shadow-lg mx-3"
+          className="flex w-full my-5 gap-2 p-4 items-center border-t-2 border-black bg-white "
         >
           <img
             src={user.image}
