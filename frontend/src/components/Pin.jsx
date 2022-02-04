@@ -103,7 +103,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   <BsFillArrowUpRightCircleFill />
                   {destination.length > 20
                     ? destination.slice(8, 20)
-                    : destination.slice(8)}
+                    : destination.slice(0)}
                 </a>
               )}
               {postedBy?._id === user?.googleId && (
@@ -113,7 +113,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     e.stopPropagation();
                     deletePin(_id);
                   }}
-                  className="bg-white p-2 opacity-70 hover:opacity-100 text-dark font-semibold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                  className="bg-white p-2 opacity-70 hover:opacity-100 text-dark font-semibold px-5 py-1 text-xs rounded-3xl hover:shadow-md outline-none"
                 >
                   <AiTwotoneDelete />
                 </button>

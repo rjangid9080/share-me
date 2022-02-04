@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {IoMdAdd, IoMdSearch } from "react-icons/io";
+import { IoMdAdd, IoMdSearch, IoMdClose } from "react-icons/io";
 
 const Navbar = ({ searchTerm, setSearchTerm, user }) => {
   const navigate = useNavigate();
@@ -19,6 +19,13 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           onFocus={() => navigate("/search")}
           className="p-2 w-full bg-white outline-none focus-within:bg-blue-50"
         />
+        {searchTerm && (
+          <IoMdClose
+            fontSize={21}
+            onClick={() => setSearchTerm("")}
+            className="cursor-pointer"
+          />
+        )}
       </div>
       <div className="flex gap-4">
         <Link to={`user-profile/${user?._id}`} className="hidden md:block">
@@ -28,8 +35,11 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
             alt="user-image"
           />
         </Link>
-        <Link to="/create-pin" className="w-10 shadow-md rounded-lg flex justify-center items-center border-2 border-gray-500 text-black">
-          <IoMdAdd/>
+        <Link
+          to="/create-pin"
+          className="w-10 shadow-md rounded-lg flex justify-center items-center border-2 border-gray-500 text-black"
+        >
+          <IoMdAdd />
         </Link>
       </div>
     </div>
