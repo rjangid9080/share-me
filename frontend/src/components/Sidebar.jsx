@@ -1,14 +1,14 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { RiHomeFill } from "react-icons/ri";
+import { AiFillHome } from "react-icons/ai";
 import { FcOldTimeCamera } from "react-icons/fc";
 
 import { categories } from "../utils/data";
 
 const isNotActiveStyle =
-  "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
+  "flex items-center px-5 gap-3 text-white hover:text-gray-100 transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  "flex items-center px-5 py-2 gap-3 text-gray-700 font-bold border-r-2 bg-blue-50 border-black transition-all duration-200 ease-in-out capitilize";
+  "flex items-center px-5 py-2 gap-3 text-white font-bold border-r-2 bg-gray-900 border-black transition-all duration-200 ease-in-out capitilize";
 
 const Sidebar = ({ user, closeToggle }) => {
   const handleCloseSidebar = () => {
@@ -18,7 +18,7 @@ const Sidebar = ({ user, closeToggle }) => {
   };
 
   return (
-    <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar">
+    <div className="flex flex-col justify-between bg-gray-700 h-full overflow-y-scroll min-w-210 hide-scrollbar">
       <div className="flex flex-col">
         <Link
           to="/"
@@ -26,7 +26,7 @@ const Sidebar = ({ user, closeToggle }) => {
           onClick={handleCloseSidebar}
         >
           <FcOldTimeCamera className="text-2xl mr-2" />
-          <p className="gloriaFont font-semibold">Share Me</p>
+          <p className="gloriaFont text-white font-semibold">Share Me</p>
         </Link>
         <div className=" flex flex-col gap-5">
           <NavLink
@@ -36,10 +36,10 @@ const Sidebar = ({ user, closeToggle }) => {
             }
             onClick={handleCloseSidebar}
           >
-            <RiHomeFill />
+            <AiFillHome className="text-white" />
             Home
           </NavLink>
-          <h3 className="mt-2 px-5 text-base 2xl:text-xl">
+          <h3 className="mt-2 px-5 text-white text-base 2xl:text-xl">
             Discover Categories
           </h3>
           {categories.slice(0, categories.length - 1).map((category) => (
@@ -53,7 +53,7 @@ const Sidebar = ({ user, closeToggle }) => {
             >
               <img
                 src={category.image}
-                className="w-8 h-8 rounded-full shadow-sm"
+                className="w-8 h-8 text-white rounded-full shadow-sm"
                 alt="catagory-image"
               />
               {category.name}
@@ -64,14 +64,15 @@ const Sidebar = ({ user, closeToggle }) => {
       {user && (
         <Link
           to={`user-profile/${user._id}`}
-          className="flex w-full my-5 gap-2 p-4 items-center border-t-2 border-black bg-white "
+          onClick={handleCloseSidebar}
+          className="flex w-full p-4 border-t-2 mt-4 gap-2 items-center bg-gray-700 "
         >
           <img
             src={user.image}
             className="w-10 h-10 rounded-full"
             alt="user-profile"
           />
-          <p>{user.userName}</p>
+          <p className="text-white">{user.userName}</p>
         </Link>
       )}
     </div>

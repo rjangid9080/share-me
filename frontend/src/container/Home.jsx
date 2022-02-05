@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { HiMenuAlt1 } from "react-icons/hi";
-import {FcOldTimeCamera} from "react-icons/fc"
+import { FcOldTimeCamera } from "react-icons/fc";
 
 import { Sidebar, UserProfile } from "../components";
 import Pins from "./Pins";
@@ -29,7 +29,10 @@ const Home = () => {
     scrollRef.current.scrollTo(0, 0);
   }, []);
   return (
-    <div className="flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out">
+    <div
+      onClick={() => (toggleSidebar ? setToggleSidebar(false) : toggleSidebar)}
+      className="flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out"
+    >
       <div className="hidden md:flex h-screen flex-initial">
         <Sidebar user={user && user} closeToggle={setToggleSidebar} />
       </div>
@@ -41,8 +44,8 @@ const Home = () => {
             onClick={() => setToggleSidebar(true)}
           />
           <Link to="/" className="flex">
-            < FcOldTimeCamera className="text-2xl mr-2"/>
-            <p className="gloriaFont font-semibold" >Share Me</p>
+            <FcOldTimeCamera className="text-2xl mr-2" />
+            <p className="gloriaFont font-semibold">Share Me</p>
           </Link>
           <Link to={`user-profile/${user?._id}`}>
             <img
